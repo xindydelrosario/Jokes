@@ -36,7 +36,7 @@ class JokeViewController: UIViewController {
     private lazy var setuplabel: UILabel = {
         let setup = UILabel(frame: .zero)
         setup.translatesAutoresizingMaskIntoConstraints = false
-        setup.numberOfLines = 0
+        setup.numberOfLines = 10
         setup.sizeToFit()
         return setup
     }()
@@ -44,7 +44,7 @@ class JokeViewController: UIViewController {
     private lazy var punchlinelabel: UILabel = {
         let punchline = UILabel(frame: .zero)
         punchline.translatesAutoresizingMaskIntoConstraints = false
-        punchline.numberOfLines = 0
+        punchline.numberOfLines = 10
         punchline.sizeToFit()
         return punchline
     }()
@@ -83,10 +83,9 @@ class JokeViewController: UIViewController {
     }
     
     @objc func saveJoke() {
-        let jokeModel = VM.jokes.randomElement()
-        let setup = jokeModel?.setup
-        let punchline = jokeModel?.punchline
-        VC.createJoke(setup: setup, punchline: punchline)
+        let setup = setuplabel.text
+        let punchline = punchlinelabel.text
+        VC.createJoke(setup: "\(setup ?? "")", punchline: "\(punchline ?? "")")
     }
     
     
@@ -96,16 +95,14 @@ class JokeViewController: UIViewController {
         navigationController?.pushViewController(nextScreen, animated: true)
     }
     
-    private func populateJokes() async {
+    private func populateJokes() async{
         await VM.populateJokes(url: API.Urls.allJokes)
         guard let joke = VM.jokes.randomElement() else { return }
-        setuplabel.text = "\(joke.setup)"
-        punchlinelabel.text = "\(joke.punchline)"
+        setuplabel.text = joke.setup
+        punchlinelabel.text = joke.punchline
         setuplabel.sizeToFit()
         punchlinelabel.sizeToFit()
     }
-    
-
     
     private func setConstraints() {
         setuplabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
@@ -115,13 +112,13 @@ class JokeViewController: UIViewController {
         punchlinelabel.topAnchor.constraint(equalTo: setuplabel.bottomAnchor, constant: 10).isActive = true
         punchlinelabel.leadingAnchor.constraint(equalTo: setuplabel.leadingAnchor).isActive = true
         
-        refreshButton.topAnchor.constraint(equalTo: punchlinelabel.bottomAnchor, constant: 10).isActive = true
+        refreshButton.topAnchor.constraint(equalTo: punchlinelabel.bottomAnchor, constant: 30).isActive = true
         refreshButton.leadingAnchor.constraint(equalTo: punchlinelabel.leadingAnchor).isActive = true
         
-        heartButton.topAnchor.constraint(equalTo: punchlinelabel.bottomAnchor,constant: 10).isActive = true
+        heartButton.topAnchor.constraint(equalTo: punchlinelabel.bottomAnchor,constant: 30).isActive = true
         heartButton.leadingAnchor.constraint(equalTo: refreshButton.leadingAnchor, constant: 30).isActive = true
         
-        nextPageButton.topAnchor.constraint(equalTo: punchlinelabel.bottomAnchor, constant: 10).isActive = true
+        nextPageButton.topAnchor.constraint(equalTo: punchlinelabel.bottomAnchor, constant: 30).isActive = true
         nextPageButton.leadingAnchor.constraint(equalTo: heartButton.leadingAnchor, constant: 30).isActive = true
         
         
