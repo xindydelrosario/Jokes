@@ -13,7 +13,7 @@ class JokeViewController: UIViewController {
     
     private let VM = JokeListViewModel()
     private let VC = FavViewController()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
@@ -49,28 +49,32 @@ class JokeViewController: UIViewController {
         return punchline
     }()
     
-    private lazy var refreshButton: UIButton = {
-        let button = UIButton(frame: .zero)
+    private lazy var refreshButton: CustomButton = {
+        let button = CustomButton()
         let image = UIImage(systemName: "arrow.clockwise")
-        button.setImage(image, for: .normal)
+      //  button.setImage(image, for: .normal)
+        button.configure(with: IconTextButtonViewModel(image: image))
         button.addTarget(self, action: #selector(loadData), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    private lazy var heartButton: UIButton = {
-        let button = UIButton(frame: .zero)
+    private lazy var heartButton: CustomButton = {
+        let button = CustomButton()
         let image = UIImage(systemName: "heart")
-        button.setImage(image, for: .normal)
+        //button.setImage(image, for: .normal)
+        button.configure(with: IconTextButtonViewModel(image: image))
         button.addTarget(self, action: #selector(saveJoke), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    private lazy var nextPageButton: UIButton = {
-        let button = UIButton (frame: .zero)
+    
+    private lazy var nextPageButton: CustomButton = {
+        let button = CustomButton()
         let image = UIImage(systemName: "rectangle.portrait.and.arrow.right")
-        button.setImage(image, for: .normal)
+        //button.setImage(image, for: .normal)
+        button.configure(with:  IconTextButtonViewModel(image: image))
         button.addTarget(self, action: #selector(goToNextScreen), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -124,8 +128,8 @@ class JokeViewController: UIViewController {
         
     }
     
-  
     
-
+    
+    
 }
 
