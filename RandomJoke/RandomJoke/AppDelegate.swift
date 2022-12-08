@@ -42,6 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          error conditions that could cause the creation of the store to fail.
         */
         let container = NSPersistentContainer(name: "RandomJoke")
+        
+        
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
@@ -57,8 +59,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                  */
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
+          
         })
+        container.viewContext.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump
         return container
+        
     }()
 
     // MARK: - Core Data Saving support

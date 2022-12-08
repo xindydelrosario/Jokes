@@ -20,6 +20,7 @@
 		7C41906E2939A3DF004056D6 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C41906D2939A3DF004056D6 /* WebService.swift */; };
 		7C4190712939A446004056D6 /* Jokes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C41906F2939A446004056D6 /* Jokes+CoreDataClass.swift */; };
 		7C4190722939A446004056D6 /* Jokes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4190702939A446004056D6 /* Jokes+CoreDataProperties.swift */; };
+		7C6EA131293DEC660074A259 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6EA130293DEC660074A259 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		7C41906D2939A3DF004056D6 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		7C41906F2939A446004056D6 /* Jokes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Jokes+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7C4190702939A446004056D6 /* Jokes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Jokes+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7C6EA130293DEC660074A259 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			children = (
 				7C41904A2939A234004056D6 /* JokeViewController.swift */,
 				7C4190652939A367004056D6 /* FavViewController.swift */,
+				7C6EA130293DEC660074A259 /* CustomButton.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				7C4190472939A234004056D6 /* AppDelegate.swift in Sources */,
 				7C4190662939A367004056D6 /* FavViewController.swift in Sources */,
 				7C4190492939A234004056D6 /* SceneDelegate.swift in Sources */,
+				7C6EA131293DEC660074A259 /* CustomButton.swift in Sources */,
 				7C41906C2939A3C8004056D6 /* API.swift in Sources */,
 				7C4190722939A446004056D6 /* Jokes+CoreDataProperties.swift in Sources */,
 				7C4190682939A396004056D6 /* JokeListViewModel.swift in Sources */,

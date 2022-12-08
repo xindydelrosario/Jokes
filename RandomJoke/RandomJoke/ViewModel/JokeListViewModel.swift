@@ -31,7 +31,6 @@ struct JokeViewModel {
         self.joke = joke
     }
     
-    
     var type: String {
          joke.type
     }
